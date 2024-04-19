@@ -1,0 +1,124 @@
+:root {
+  --square-size: 50px;
+  --gap: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  opacity: 0.9;
+  padding: 10px;
+  gap: var(--gap);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.level {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+}
+
+.square {
+  height: var(--square-size);
+  width: var(--square-size);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.square.filled {
+  background-color: red;
+  border-color: red;
+}
+
+.game {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: calc(50vh - 300px);
+  left: calc(50vw - 300px);
+  background-color: transparent;
+  font-family: "Press Start 2P", system-ui;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: flicker 2s linear infinite
+}
+
+.game h1 {
+  font-size: 4rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 5px white;
+}
+
+.win h1 {
+  color: green;
+}
+
+.lose h1 {
+  color: red;
+}
+
+.game p {
+  color: white;
+  font-size: 2rem;
+}
+
+.start p {
+  font-size: 3rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --square-size: 45px;
+    --gap: 5px;
+  }
+
+  .game {
+    width: 100%;
+    left: 0;
+  }
+
+  .game h1 {
+    font-size: 2rem;
+  }
+
+  .game p {
+    font-size: 1rem;
+  }
+
+  .start p {
+    font-size: 2rem;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
